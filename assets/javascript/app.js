@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	var apicall = "http://jservice.io/api/random?count=26";
+	var apicall = "https://crossorigin.me/http://jservice.io/api/random?count=26";
 	var parsedData = "";
 	var question = "";
 
