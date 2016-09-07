@@ -7,16 +7,20 @@ $(document).ready(function() {
 	var question = "";
 	var qcounter = 0;
 	var answers = [];
+	var answer = "";
 	var correct = 0;
 	var wrong = 0;
+	var rounds = 1;
+
+	// Audio element variables
 	var introAudio = $("#intro-audio")[0];
 	var timerAudio = $("#timer-audio")[0];
 	var buzzerAudio = $("#buzzer-audio")[0];
 	var dingAudio = $("#ding-audio")[0];
+	var gameoverAudio = $("#gameover-audio")[0];
+
 	var timerCount = 13;
 	var timerInterval = "";
-	var answer = "";
-	var rounds = 1;
 	
 	// Array shuffling function to randomize answers
 	function shuffle(array) {
@@ -44,9 +48,14 @@ $(document).ready(function() {
 		if(rounds == 14) {
 			hide($(".hide"));
 			show($(".transition"));
-			$("#transition-text").html("<h1>GAME OVER.</h1><p>CORRECT ANSWERS: "+correct+"</p><p>INCORRECT ANSWERS: "+wrong+"</p><p><button class='start-button'>Restart Game</button></p>");
+			hide($("header"));
+			$("html").css("background-image", "url('assets/images/gameover.jpg')");	
+			$("#transition-text").css("background", "none");
+			$("#transition-text").html("<p>CORRECT: "+correct+"</p><p>INCORRECT: "+wrong+"</p><p><button class='start-button'>Restart Game</button></p>");
+			gameoverAudio.play();
 		} else if (rounds < 14) {
     		$("#transition-text").empty();
+    		show($("header"));
     		show($(".hide"));
 			$("html").css("background-image", "url('assets/images/jasontrebek.gif')");
 	    	qcounter+=4;		
@@ -91,13 +100,14 @@ $(document).ready(function() {
 		timerAudio.play();
 		timerInterval = setInterval(function() {
 			if (timerCount > 0) {
-				$("#time-remaining").html("TIME LEFT: "+timerCount);
+				$("#time-remaining").html(timerCount);
 				timerCount--;			
 			} else if (timerCount == 0) {
 				timerAudio.pause();
 				buzzerAudio.play();
     			$("html").css({"background-color": "#0039c4", "background-image": "none"});
     			hide($(".hide"));
+		    	hide($("header"));
     			show($(".transition"));
     			$("#transition-text").html("<h1>TIME'S UP.</h1><p>The correct answer is: "+answer.toUpperCase()+"</p>")
     			wrong++;
@@ -120,17 +130,27 @@ $(document).ready(function() {
 	}
 
 	// Click event for game start and restart
-	$("body").on("click", ".start-button", ".answer", function() {
+	$("body").on("click", ".start-button", function() {
+	     		$("#transition-text").empty();
+				hide($(".transition"));
+				hide($(".intro"));
+				introAudio.play();
+				if($(this).text() == "Restart Game") {
 
+					// Reload animated gif
+					setTimeout(function() {
+						show($("header"));
+		        		var img = document.createElement('img');
+	        			img.src = "assets/images/jasontrebek.gif?p" + new Date().getTime();
+						$("html").css("background-image", "url('"+img.src+"')");
+					}, 4000);
+				} else if ($(this).text() == "Start Game") {
+					setTimeout(function() {$("html").css("background-image", "url('assets/images/jasontrebek.gif')")}, 5000);
+				}
 		// API call
 		$.getJSON(apicall, function(data){
 	    	parsedData = JSON.parse(JSON.stringify(data));
 	    	console.log(parsedData);
-	     		$("#transition-text").empty();
-				hide($(".transition"));
-				$(".intro").addClass("display-none");
-				introAudio.play();
-				setTimeout(function() {$("html").css("background-image", "url('assets/images/jasontrebek.gif')")}, 5000);
 				correct = 0;
 				wrong = 0;
 				qcounter = 0;
@@ -150,6 +170,7 @@ $(document).ready(function() {
 		    		if($(this).text() == answer.toUpperCase()) {
 			    		dingAudio.play();
 		    			$("html").css({"background-color": "#0039c4", "background-image": "none"});
+		    			hide($("header"));
 		    			hide($(".hide"));
 		    			show($(".transition"));
 		    			$("#transition-text").html("<h1>CORRECT!</h1>")
@@ -160,6 +181,7 @@ $(document).ready(function() {
 		    		} else if($(this).text() != answer.toUpperCase()) {
 		    			buzzerAudio.play();
 		    			$("html").css({"background-color": "#0039c4", "background-image": "none"});
+		    			hide($("header"));
 		    			hide($(".hide"));
 		    			show($(".transition"));
 		    			$("#transition-text").html("<h1>The correct answer is: </h1><p>"+answer.toUpperCase()+"</p>")

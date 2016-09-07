@@ -29,6 +29,7 @@ header {
 	text-align: center;
 	white-space: nowrap;
 	font-size: 100px;
+	margin-bottom: 10px;
 }
 .gameplay:before {
 	content: '';
@@ -66,6 +67,7 @@ sup {
 	padding: 20px;
 	cursor: pointer;
 	cursor: hand;
+	letter-spacing: 2px;
 }
 
 /*Gameplay*/
@@ -76,11 +78,18 @@ sup {
 }
 #time-remaining {
 	position: absolute;
-	font-family: 'Orbitron', monospace;
+	/*font-family: 'Orbitron', monospace;*/
+	font-family: 'gyparody', monospace;
 	text-align: center;
 	color: #c0001b;
-	font-size: 30px;
-}
+	font-size: 60px;
+   	-webkit-text-stroke: 1px black;
+   	text-shadow:
+    	3px 3px 0 #000,
+    	-1px -1px 0 #000,  
+    	1px -1px 0 #000,
+    	-1px 1px 0 #000,
+    	1px 1px 0 #000;}
 #category {
 	float: left;
 	width: 300px;
@@ -157,25 +166,82 @@ sup {
 	display: none;
 }
 .display-block {
-	display: inline-block;
+	display: block;
 }
 
 /*Responsive elements to be added*/
 @media (min-width: 400px) {
-
+	header {
+		font-size: 50px;
+	}
+	.start-button {
+		font-size: 20px;
+	}
+	#transition-text {
+		left: 25%;
+		top: 50%;
+		font-size: 30px;
+	}
 }
 @media (min-width: 440px) {
-
+	header {
+		font-size: 50px;
+	}
+	#transition-text {
+		left: 25%;
+		top: 50%;
+		font-size: 30px;
+	}
 }
 @media (min-width: 500px) {
-
+	header {
+		font-size: 60px;
+	}
+	.start-button {
+		font-size: 25px;
+	}
+	#transition-text {
+		left: 25%;
+		top: 50%;
+		font-size: 35px;
+	}
 }
 @media (min-width: 630px) {
-
+	header {
+		font-size: 70px;
+	}
+	.start-button {
+		font-size: 25px;
+	}
+	#transition-text {
+		left: 25%;
+		top: 50%;
+		font-size: 35px;
+	}
 }
 @media (min-width: 768px) {
-
+	header {
+		font-size: 80px;
+	}
+	.start-button {
+		font-size: 30px;
+	}
+	#transition-text {
+		left: 30%;
+		top: 50%;
+		font-size: 35px;
+	}
 }
 @media (min-width: 1200px) {
-
+	header {
+		font-size: 100px;
+	}
+	.start-button {
+		font-size: 30px;
+	}
+	#transition-text {
+		left: 30%;
+		top: 50%;
+		font-size: 40px;
+	}
 }
