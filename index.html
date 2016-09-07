@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Trivia 13</title>
+	<title>TRIVIALLY THE 13TH</title>
 
 	<!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">	
 	<!-- Link to jQuery -->
-	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
 
 	<!-- Reset CSS -->
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
@@ -17,12 +17,34 @@
 </head>
 <body>
 	<header>
-		<h1>Trivia 13</h1>
+		<h1 id="gyparody">TRIVIALLY&nbsp;</h1><h1 id="friday-13">THE 13<sup>TH</sup></h1>
 	</header>
-	<div id="time-remaining"></div>
-	<div id="question"></div>
-	<div id="answers"></div>
-	<div id="game-end"></div>
+
+	<!-- Start screen -->
+	<div class="intro">
+		<button class="start-button intro">Start Game</button>
+	</div>
+
+	<!-- Game elements -->
+	<div class="hide">
+	<div id="time-remaining" class="gameplay hide"></div>
+	<p class="hide"><div id="category" class="gameplay hide"></div></p>
+	<p class="hide"><div id="question" class="gameplay hide"></div></p>
+	<p class="hide"><div id="answers" class="gameplay hide"></div></p>
+	</div>
+
+	<!-- Transition container -->
+	<div class="transition">
+		<div id="transition-text"></div>
+	</div>
+
+	<!-- Audio elements -->
+	<audio id="intro-audio" src="assets/sounds/start.mp3">
+	<audio id="timer-audio" src="assets/sounds/dadadada.mp3">
+	<audio id="buzzer-audio" src="assets/sounds/buzzer.mp3">
+	<audio id="ding-audio" src="assets/sounds/dingding.mp3">
+
+	<!-- Game logic -->
 	<script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 </html>

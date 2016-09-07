@@ -1,0 +1,181 @@
+/*Import fonts*/
+@import url(https://fonts.googleapis.com/css?family=Orbitron);
+
+@font-face {
+	font-family: 'gyparody';
+	src: url('../fonts/gyparody.ttf');
+}
+@font-face {
+	font-family: '13';
+	src: url('../fonts/13.ttf');
+}
+@font-face {
+	font-family: 'korinna';
+	src: url('../fonts/Korinna.ttf');
+}
+
+html {
+	background: url("../images/jason1.jpg") no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	text-align: center;	
+}
+
+/*Header elements*/
+header {
+	margin-top: 320px;
+	text-align: center;
+	white-space: nowrap;
+	font-size: 100px;
+}
+.gameplay:before {
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	text-align: center;
+}
+#gyparody, #friday-13 {
+	display: inline-block;
+}
+#gyparody {
+	font-family: 'gyparody';
+	color: #015092;
+	text-shadow: 4px 4px 4px #000;
+}
+#friday-13 {
+	font-family: '13';
+	color: #c0001b;
+}
+sup {
+	vertical-align: super;
+}
+
+/*Intro screen*/
+.intro {
+	text-align: center;
+}
+.start-button {
+	font-family: 'gyparody';
+	font-size: 30px;
+	background: #015092;
+	color: #fff;
+	border: none;
+	padding: 20px;
+	cursor: pointer;
+	cursor: hand;
+}
+
+/*Gameplay*/
+.gameplay {
+	display: none;
+	text-align: center;
+	vertical-align: middle;
+}
+#time-remaining {
+	position: absolute;
+	font-family: 'Orbitron', monospace;
+	text-align: center;
+	color: #c0001b;
+	font-size: 30px;
+}
+#category {
+	float: left;
+	width: 300px;
+	font-family: helvetica;
+	color: #fff;
+	font-size: 25px;
+	background: #0039c4;
+	padding-right: 10px;
+	padding-left: 10px;
+	text-shadow: 4px 4px 4px #000;
+	text-align: center;
+	margin: 20px;
+	padding-bottom: 30px;
+	-moz-border-radius: 20px 20px 20px 20px;
+	-webkit-border-radius: 20px 20px;
+	-moz-box-shadow:	inset 0 0 10px 6px #000000;
+	-webkit-box-shadow: inset 0 0 10px 6px #000000;
+	box-shadow:	inset 0 0 10px 6px #000000;
+}
+#question {
+	clear: both;
+	float: left;
+	margin: 20px;
+	font-family: 'korinna';
+	color: #fff;
+	font-size: 20px;
+	background: #0039c4;
+	text-shadow: 4px 4px 4px #000;
+	padding: 10px;
+	text-align: center;
+	width: 300px;
+	padding-bottom: 30px;
+	-moz-border-radius: 20px 20px 20px 20px;
+	-webkit-border-radius: 20px 20px;
+	-moz-box-shadow:	inset 0 0 10px 6px #000000;
+	-webkit-box-shadow: inset 0 0 10px 6px #000000;
+	box-shadow:	inset 0 0 10px 6px #000000;
+}
+#answers {
+	float: left;
+}
+.answer {
+	font-family: 'korinna';
+	color: #fff;
+	font-size: 20px;
+	background: #0039c4;
+	padding: 20px;
+	margin: 10px;
+	text-shadow: 4px 4px 4px #000;
+	cursor: pointer;
+	cursor: hand;
+	text-align: center;
+	border-color: #000;
+	-moz-border-radius: 20px 20px 20px 20px;
+	-webkit-border-radius: 20px 20px;
+	-moz-box-shadow:	inset 0 0 10px 6px #000000;
+	-webkit-box-shadow: inset 0 0 10px 6px #000000;
+	box-shadow:	inset 0 0 10px 6px #000000;
+}
+
+/*Transition*/
+#transition-text {
+	position: absolute;
+	left: 30%;
+	top: 50%;
+	font-family: 'korrina';
+	background-color: #0039c4;
+	color: #fff;
+	font-size: 50px;
+}
+
+/*Hide and display classes*/
+.display-none {
+	display: none;
+}
+.display-block {
+	display: inline-block;
+}
+
+/*Responsive elements to be added*/
+@media (min-width: 400px) {
+
+}
+@media (min-width: 440px) {
+
+}
+@media (min-width: 500px) {
+
+}
+@media (min-width: 630px) {
+
+}
+@media (min-width: 768px) {
+
+}
+@media (min-width: 1200px) {
+
+}
