@@ -1,5 +1,4 @@
 /*Import fonts*/
-@import url(https://fonts.googleapis.com/css?family=Orbitron);
 
 @font-face {
 	font-family: 'gyparody';
@@ -78,7 +77,6 @@ sup {
 }
 #time-remaining {
 	position: absolute;
-	/*font-family: 'Orbitron', monospace;*/
 	font-family: 'gyparody', monospace;
 	text-align: center;
 	color: #c0001b;
@@ -169,7 +167,7 @@ sup {
 	display: block;
 }
 
-/*Responsive elements to be added*/
+/*Responsive elements*/
 @media (min-width: 400px) {
 	header {
 		font-size: 50px;

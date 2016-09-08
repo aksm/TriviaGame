@@ -44,7 +44,6 @@ $(document).ready(function() {
 
 	// Set up question and answers and call timer function.
 	function startQ() {
-		console.log(rounds);
 		if(rounds == 14) {
 			hide($(".hide"));
 			show($(".transition"));
@@ -78,8 +77,6 @@ $(document).ready(function() {
 			timer();
 			// Insane work-around to strip out api accidental html tags
 			answer = $("<p>").html(clue.answer).text();
-			console.log(clue.answer);
-			console.log(answer);
     		rounds++;
 		}
 	}
@@ -150,7 +147,6 @@ $(document).ready(function() {
 		// API call
 		$.getJSON(apicall, function(data){
 	    	parsedData = JSON.parse(JSON.stringify(data));
-	    	console.log(parsedData);
 				correct = 0;
 				wrong = 0;
 				qcounter = 0;
@@ -175,7 +171,6 @@ $(document).ready(function() {
 		    			show($(".transition"));
 		    			$("#transition-text").html("<h1>CORRECT!</h1>")
 		    			correct++;
-		    			console.log("Correct: "+correct);
 		    			clearInterval(timerInterval);
 		    			setTimeout(startQ, 5000);
 		    		} else if($(this).text() != answer.toUpperCase()) {
@@ -186,7 +181,6 @@ $(document).ready(function() {
 		    			show($(".transition"));
 		    			$("#transition-text").html("<h1>The correct answer is: </h1><p>"+answer.toUpperCase()+"</p>")
 		    			wrong++;
-		    			console.log("Wrong: "+wrong);
 		    			clearInterval(timerInterval);
 		    			setTimeout(startQ, 5000);
 		    		}
